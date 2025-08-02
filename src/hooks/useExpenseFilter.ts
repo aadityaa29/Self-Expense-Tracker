@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { db } from '@/lib/firebase'
-import { collection, getDocs, query, where, Timestamp } from 'firebase/firestore'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 import { Expense } from '@/types'
 
 type Filters = {
@@ -23,10 +23,10 @@ export default function useExpenseFilter(filters: Filters) {
     const fetchFiltered = async () => {
       setLoading(true)
       try {
-        let q = query(collection(db, 'expenses'), where('uid', '==', filters.uid))
+        const q = query(collection(db, 'expenses'), where('uid', '==', filters.uid))
 
         const snapshot = await getDocs(q)
-        let results: Expense[] = []
+        const results: Expense[] = []
 
         snapshot.forEach((doc) => {
           const data = doc.data() as Expense

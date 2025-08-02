@@ -27,8 +27,9 @@ export default function SearchFilter({ onFilter, categories }: Props) {
   });
 
   useEffect(() => {
-    onFilter(filters);
-  }, [filters]);
+  onFilter(filters);
+}, [filters, onFilter]);
+
 
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">

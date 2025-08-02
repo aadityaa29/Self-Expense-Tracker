@@ -55,7 +55,7 @@ const Header: React.FC = () => {
     const viewportWidth = window.innerWidth;
 
     let left = toggleRect.right - dropdownRect.width;
-    let top = toggleRect.bottom + 6;
+    const top = toggleRect.bottom + 6;
 
     if (left < 8) left = 8;
     if (left + dropdownRect.width > viewportWidth - 8) {
